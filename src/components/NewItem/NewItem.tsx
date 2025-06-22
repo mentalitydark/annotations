@@ -3,7 +3,7 @@ import { EnterEvent } from '../../Utils'
 import { useNewItem } from './useNewItem'
 
 export function NewItem() {
-const { newItemSubmit, inputRef, selectRef, cards } = useNewItem()
+const { createItemSubmit, itemInputRef, cardSelectRef, cards } = useNewItem()
 
   return (
     <CardElements.Main>
@@ -11,7 +11,7 @@ const { newItemSubmit, inputRef, selectRef, cards } = useNewItem()
         <CardElements.Title value="Novo Item" />
       </CardElements.Header>
       <CardElements.Content>
-        <select ref={selectRef} name="card-item-select" id="card-item-select" defaultValue="" className="select">
+        <select ref={cardSelectRef} name="card-item-select" id="card-item-select" defaultValue="" className="select">
           <option value="" disabled>Selecione um card</option>
           {
             Array
@@ -20,15 +20,15 @@ const { newItemSubmit, inputRef, selectRef, cards } = useNewItem()
           }
         </select>
         <input
-          ref={inputRef}
+          ref={itemInputRef}
           type="text"
           name="new-input-input"
           className="input-text"
-          onKeyDown={EnterEvent(newItemSubmit)}
+          onKeyDown={EnterEvent(createItemSubmit)}
           />
       </CardElements.Content>
       <CardElements.Footer>
-        <CardElements.Action title="ADICIONAR" action={newItemSubmit} />
+        <CardElements.Action title="ADICIONAR" action={createItemSubmit} />
       </CardElements.Footer>
     </CardElements.Main>
   )

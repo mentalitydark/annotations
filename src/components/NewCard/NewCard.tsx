@@ -3,7 +3,7 @@ import { EnterEvent } from '../../Utils'
 import { useNewCard } from './useNewCard'
 
 export function NewCard() {
-  const { newCardSubmit, inputRef } = useNewCard()
+  const { createCardSubmit, inputRef } = useNewCard()
   
   return (
     <CardElements.Main>
@@ -16,11 +16,11 @@ export function NewCard() {
           type="text"
           name="new-card-input"
           className="input-text"
-          onKeyDown={EnterEvent(newCardSubmit)}
+          onKeyDown={EnterEvent(createCardSubmit)}
           />
       </CardElements.Content>
       <CardElements.Footer>
-        <CardElements.Action title="CRIAR" action={newCardSubmit} />
+        <CardElements.Action title="CRIAR" action={createCardSubmit} />
       </CardElements.Footer>
     </CardElements.Main>
   )

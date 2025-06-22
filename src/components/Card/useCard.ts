@@ -17,7 +17,7 @@ export function useCard(id: string) {
     }
   }, [id])
 
-  const remove = (key: string) => {
+  const deleteCard = (key: string) => {
     try {
       removeCard(key)
     } catch (e) {
@@ -28,7 +28,7 @@ export function useCard(id: string) {
   }
 
   return {
-    remove,
+    deleteCard,
     itensCount
   }
 }

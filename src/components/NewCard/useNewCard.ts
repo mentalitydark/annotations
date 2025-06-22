@@ -3,26 +3,28 @@ import { CardsContext } from '../../contexts/cards'
 import { InvalidArgument } from '../../Errors'
 
 export function useNewCard() {
-  const { newCard } = useContext(CardsContext)
+  const { createCard } = useContext(CardsContext)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const newCardSubmit = () => {
+  const createCardSubmit = () => {
     try {
       if (!inputRef.current) {
         return
       }
 
-      newCard(inputRef.current.value)
+      createCard(inputRef.current.value)
 
       inputRef.current.value = ""
       inputRef.current.focus()
     } catch (e) {
-      if (e instanceof InvalidArgument) { console.log(e.message) }
+      if (e instanceof InvalidArgument) {
+        console.log(e.message)
+      }
     }
   }
 
   return {
-    newCardSubmit,
+    createCardSubmit,
     inputRef
   }
 }

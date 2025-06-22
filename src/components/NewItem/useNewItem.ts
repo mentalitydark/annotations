@@ -6,43 +6,43 @@ import { EventEmitter } from '../../Utils/EventEmitter'
 
 export function useNewItem() {
   const { cards } = useContext(CardsContext)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const selectRef = useRef<HTMLSelectElement>(null)
+  const itemInputRef = useRef<HTMLInputElement>(null)
+  const cardSelectRef = useRef<HTMLSelectElement>(null)
 
-  const newItemSubmit = () => {
+  const createItemSubmit = () => {
     try {
-      if (!inputRef.current || !selectRef.current) {
+      if (!itemInputRef.current || !cardSelectRef.current) {
         return
       }
 
-      if (!selectRef.current.value) {
+      if (!cardSelectRef.current.value) {
         throw new InvalidArgument("Necessário selecionar um Card")
       }
 
-      const card = cards.get(selectRef.current.value)
+      const card = cards.get(cardSelectRef.current.value)
 
       if (!card) {
         return
       }
 
       const item = new Item(card.id)
-      item.description = inputRef.current.value
+      item.description = itemInputRef.current.value
 
       card.addItem(item)
 
       EventEmitter.dispatch(card.id, { quantity: card.itens.size })
       
-      inputRef.current.value = ""
-      inputRef.current.focus()
+      itemInputRef.current.value = ""
+      itemInputRef.current.focus()
     } catch (e) {
       if (e instanceof InvalidArgument) { console.log(e.message) }
     }
   }
 
   return {
-    newItemSubmit,
-    inputRef,
-    selectRef,
+    createItemSubmit,
+    itemInputRef,
+    cardSelectRef,
     cards
   }
 }
