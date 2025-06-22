@@ -16,6 +16,7 @@ export function NewCard() {
           type="text"
           name="new-card-input"
           className="input-text"
+          placeholder="Nome do Card"
           onKeyDown={EnterEvent(createCardSubmit)}
           />
       </CardElements.Content>
