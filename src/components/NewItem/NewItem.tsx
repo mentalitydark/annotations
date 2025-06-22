@@ -24,6 +24,7 @@ const { createItemSubmit, itemInputRef, cardSelectRef, cards } = useNewItem()
           type="text"
           name="new-input-input"
           className="input-text"
+          placeholder="Descrição do item"
           onKeyDown={EnterEvent(createItemSubmit)}
           />
       </CardElements.Content>
