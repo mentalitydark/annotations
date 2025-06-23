@@ -4,11 +4,14 @@ import App from "./App.tsx"
 import "./index.css"
 
 import { CardsProvider } from "./contexts/cards"
+import { TimerProvider } from "./contexts/timer"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <CardsProvider>
-      <App />
-    </CardsProvider>
+    <TimerProvider>
+      <CardsProvider>
+        <App />
+      </CardsProvider>
+    </TimerProvider>
   </React.StrictMode>,
 )
