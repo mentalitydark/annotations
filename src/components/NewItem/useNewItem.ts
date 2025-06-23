@@ -34,7 +34,7 @@ export function useNewItem() {
 
       card.addItem(item)
 
-      EventEmitter.dispatch(card.id, { quantity: card.itens.size })
+      EventEmitter.dispatch(card.id, { quantity: card.items.size })
       
       itemInputRef.current.value = ""
       itemInputRef.current.focus()

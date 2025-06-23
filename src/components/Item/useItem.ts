@@ -13,7 +13,7 @@ export function useItem(item: Item) {
     const card = cards.get(item.cardId)!
 
     card.removeItem(item.id)
-    EventEmitter.dispatch(card.id, { quantity: card.itens.size })
+    EventEmitter.dispatch(card.id, { quantity: card.items.size })
   }, [cards, item])
 
   const timerDiff = useMemo(() => DateDiff(timer, item.createdAt), [item.createdAt, timer])

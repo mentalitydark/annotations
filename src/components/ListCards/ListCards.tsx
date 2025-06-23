@@ -8,7 +8,7 @@ export function ListCards() {
     <div className="list-cards-container">
       {
         Array.from(cards).map(([, card]) => (
-          <Card key={card.id} id={card.id} title={card.description} itens={card.itens} />
+          <Card key={card.id} id={card.id} title={card.description} items={card.items} />
         ))
       }
     </div>
