@@ -19,6 +19,10 @@ export function useNewItem() {
         throw new InvalidArgument("Necessário selecionar um Card")
       }
 
+      if (!itemInputRef.current.value) {
+        throw new InvalidArgument("Necessário informar uma descrição para o Item")
+      }
+
       const card = cards.get(cardSelectRef.current.value)
 
       if (!card) {
