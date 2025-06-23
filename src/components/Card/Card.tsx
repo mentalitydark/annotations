@@ -1,5 +1,6 @@
 import { Item as ItemModel } from "../../models";
 import { Item } from "../Item";
+import { CardAction } from "./CardAction";
 import { CardClose } from "./CardClose";
 import { CardContent } from "./CardContent";
 import { CardFooter } from "./CardFooter";
@@ -11,28 +12,30 @@ import { useCard } from "./useCard";
 interface CardProps {
   title: string
   id: string
-  itens: Map<string, ItemModel>
+  items: Map<string, ItemModel>
 }
 
-export function Card({ title, id, itens }: CardProps) {
-  const { deleteCard, itensCount } = useCard(id)
+export function Card({ title, id, items }: CardProps) {
+  const { deleteCard, itemsCount, copyItems } = useCard(id, items)
 
   return (
     <CardMain>
       <CardHeader>
-        <CardTitle value={`${title} (${itensCount})`} />
+        <CardTitle value={`${title} (${itemsCount})`} />
         <CardClose action={() => deleteCard(id)} />
       </CardHeader>
       <CardContent>
         <div>
           {
-            Array.from(itens).map(([, item]) => (
+            Array.from(items).map(([, item]) => (
               <Item key={item.id} item={item} />
             ))
           }
         </div>
       </CardContent>
-      <CardFooter></CardFooter>
+      <CardFooter>
+        <CardAction title="COPIAR ITENS" action={copyItems} />
+      </CardFooter>
     </CardMain>
   )
 }
