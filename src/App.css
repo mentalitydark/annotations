@@ -5,7 +5,7 @@
 
 .app-header {
   display: grid;
-  grid-template-columns: repeat(4, 0.25fr);
+  grid-template: 'new-card new-item app-header-group app-header-group';
   gap: 0.5em;
   padding: 1em;
 }
@@ -55,6 +55,7 @@
   display: flex;
   flex-direction: column;
   padding: 0.5em;
+  flex: 1;
 }
 
 .card-footer {
@@ -79,6 +80,7 @@
   font-size: 1em;
   letter-spacing: 3px;
   width: 100%;
+  cursor: pointer;
 }
 
 .item-container {
@@ -126,6 +128,31 @@
   font-weight: bold;
 }
 
+.app-header-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  grid-area: app-header-group;
+}
+
+.new-card {
+  grid-area: new-card;
+  display: flex;
+}
+
+.new-item {
+  grid-area: new-item;
+  display: flex;
+}
+
+.utilityCard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 1em;
+}
+
 @media (max-width: 1920px) {
   .list-cards-container {
     padding-left: 1em;
@@ -142,6 +169,24 @@
     column-count: 2;
     column-gap: 0.5em;
   }
+
+  .app-header {
+    display: grid;
+    grid-template: 'new-card new-item app-header-group app-header-group';
+    gap: 0.5em;
+    padding: 1em;
+  }
+}
+
+@media (max-width: 950px) {
+  .app-header {
+    display: grid;
+    grid-template:
+    'new-card new-item' 0.5fr
+    'app-header-group app-header-group' 0.5fr;
+    gap: 0.5em;
+    padding: 1em;
+  }
 }
 
 @media (max-width: 720px) {
@@ -155,9 +200,12 @@
 
 @media (max-width: 600px) {
   .app-header {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5em;
-  padding: 1em;
-}
+    display: grid;
+    grid-template:
+      'new-card'
+      'new-item'
+      'app-header-group';
+    gap: 0.5em;
+    padding: 1em;
+  }
 }
