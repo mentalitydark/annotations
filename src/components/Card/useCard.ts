@@ -4,12 +4,10 @@ import { EntityNotFound } from "../../Errors"
 import { EventEmitter } from "../../Utils/EventEmitter"
 import { Item } from "../../models"
 import { DateDiff } from "../../Utils/DateDiff"
-import { TimerContext } from "../../contexts/timer"
 
 export function useCard(id: string, items: Map<string, Item>) {
   const [itemsCount, setItemsCount] = useState(0)
   const { removeCard, cards } = useContext(CardsContext)
-  const { timer } = useContext(TimerContext)
 
   useEffect(() => {
     EventEmitter.subscribe(id, ({ quantity }: { quantity: number }) => {
@@ -36,11 +34,11 @@ export function useCard(id: string, items: Map<string, Item>) {
 
     const text = Array
       .from(items.values())
-      .map((item) => `${DateDiff(timer, item.createdAt)} - ${card.description.toUpperCase()} ${item.description}`)
+      .map((item) => `${DateDiff(item.timerUsed, item.createdAt)} - ${card.description.toUpperCase()} ${item.description}`)
       .join('\n')
 
     navigator.clipboard.writeText(text)
-  }, [items, timer, id, cards])
+  }, [items, id, cards])
 
   return {
     deleteCard,
