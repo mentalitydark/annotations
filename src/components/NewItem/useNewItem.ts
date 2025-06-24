@@ -3,9 +3,11 @@ import { CardsContext } from '../../contexts/cards'
 import { InvalidArgument } from '../../Errors'
 import { Item } from '../../models'
 import { EventEmitter } from '../../Utils/EventEmitter'
+import { TimerContext } from '../../contexts/timer'
 
 export function useNewItem() {
   const { cards } = useContext(CardsContext)
+  const { timer } = useContext(TimerContext)
   const itemInputRef = useRef<HTMLInputElement>(null)
   const cardSelectRef = useRef<HTMLSelectElement>(null)
 
@@ -29,7 +31,7 @@ export function useNewItem() {
         return
       }
 
-      const item = new Item(card.id)
+      const item = new Item({ cardId: card.id, timer })
       item.description = itemInputRef.current.value
 
       card.addItem(item)

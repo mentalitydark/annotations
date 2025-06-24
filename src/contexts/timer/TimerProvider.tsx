@@ -1,18 +1,16 @@
-import { PropsWithChildren, useRef } from "react";
+import { PropsWithChildren, useState } from "react";
 import { TimerContext } from "./TimerContext";
 
-
-
 export function TimerProvider({ children }: PropsWithChildren) {
-  const timerRef = useRef<Date>(new Date())
+  const [timer, setTimer] = useState<Date>(new Date())
 
   const restart = () => {
-    timerRef.current = new Date()
+    setTimer(new Date())
   }
 
   return (
     <TimerContext.Provider value={{
-      timer: timerRef.current,
+      timer,
       restart
     }}>
       {children}
