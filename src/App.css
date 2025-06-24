@@ -110,6 +110,22 @@
   font-weight: bold;
 }
 
+.timer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-label {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.timer-value {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 @media (max-width: 1920px) {
   .list-cards-container {
     padding-left: 1em;
