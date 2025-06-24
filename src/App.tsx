@@ -1,5 +1,5 @@
 import './App.css'
-import { ListCards, NewCard, NewItem, TimerCard } from './components'
+import { ListCards, NewCard, NewItem, TimerCard, UtilityCard } from './components'
 
 function App() {
  
@@ -8,7 +8,10 @@ function App() {
       <div className='app-header'>
         <NewCard />
         <NewItem />
-        <TimerCard />
+        <div className='app-header-group'>
+          <TimerCard />
+          <UtilityCard />
+        </div>
       </div>
       <ListCards />
     </>
