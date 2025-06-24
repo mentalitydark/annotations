@@ -5,6 +5,7 @@ import { EntityNotFound, InvalidArgument } from "../../Errors"
 
 import { CardsContext } from "./CardsContext"
 import { CardsContextInterface } from "./CardsContext.types"
+import { EventEmitter } from "../../Utils/EventEmitter"
 
 export function CardsProvider({ children }: PropsWithChildren) {
   const [cards, setCards] = useState<CardsContextInterface["cards"]>(new Map())
@@ -43,13 +44,21 @@ export function CardsProvider({ children }: PropsWithChildren) {
     setCards(new Map())
   }, [])
 
+  const removeAllItems = useCallback(() => {
+    cards.forEach(card => {
+      card.items.clear()
+      EventEmitter.dispatch(card.id, { quantity: 0 })
+    })
+  }, [cards])
+
   return (
     <CardsContext.Provider value={{
       cards,
       createCard,
       updateCard,
       removeCard,
-      removeAllCards
+      removeAllCards,
+      removeAllItems
     }}>
       {children}
     </CardsContext.Provider>

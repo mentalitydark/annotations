@@ -6,4 +6,5 @@ export interface CardsContextInterface {
   updateCard: (id: Card["id"], description: Card["description"]) => void
   removeCard: (id: Card["id"]) => void,
   removeAllCards: () => void
+  removeAllItems: () => void
 }
