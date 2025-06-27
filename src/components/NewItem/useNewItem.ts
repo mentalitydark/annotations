@@ -4,10 +4,12 @@ import { InvalidArgument } from '../../Errors'
 import { Item } from '../../models'
 import { EventEmitter } from '../../Utils/EventEmitter'
 import { TimerContext } from '../../contexts/timer'
+import { ToastContext } from '../../contexts/toast'
 
 export function useNewItem() {
   const { cards } = useContext(CardsContext)
   const { timer } = useContext(TimerContext)
+  const { success, error } = useContext(ToastContext)
   const itemInputRef = useRef<HTMLInputElement>(null)
   const cardSelectRef = useRef<HTMLSelectElement>(null)
 
@@ -40,8 +42,9 @@ export function useNewItem() {
       
       itemInputRef.current.value = ""
       itemInputRef.current.focus()
+      success('Item criado')
     } catch (e) {
-      if (e instanceof InvalidArgument) { console.log(e.message) }
+      if (e instanceof InvalidArgument) { error(e.message) }
     }
   }
 

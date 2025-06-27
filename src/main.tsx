@@ -5,13 +5,16 @@ import "./index.css"
 
 import { CardsProvider } from "./contexts/cards"
 import { TimerProvider } from "./contexts/timer"
+import { ToastProvider } from "./contexts/toast"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TimerProvider>
-      <CardsProvider>
-        <App />
-      </CardsProvider>
-    </TimerProvider>
+    <ToastProvider>
+      <TimerProvider>
+        <CardsProvider>
+          <App />
+        </CardsProvider>
+      </TimerProvider>
+    </ToastProvider>
   </React.StrictMode>,
 )
