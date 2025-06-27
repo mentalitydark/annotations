@@ -153,6 +153,44 @@
   gap: 1em;
 }
 
+.toast-container {
+  display: none;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  height: 30px;
+  background-color: #C9C9C9;
+  border: 1px solid #383838;
+  color: #383838;
+  border-radius: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px;
+  transition: all 0.5s ease;
+  transform: translate(-50%);
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.toast-active {
+  display: flex;
+  top: 10px
+}
+
+.toast-error {
+  background-color: #FFC9C9;
+}
+
+.toast-warning {
+  background-color: #FFFFC9;
+}
+
+.toast-success {
+  background-color: #C9FFC9;
+}
+
 @media (max-width: 1920px) {
   .list-cards-container {
     padding-left: 1em;
