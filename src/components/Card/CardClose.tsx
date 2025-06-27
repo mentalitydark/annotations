@@ -4,6 +4,6 @@ interface CardCloseProps {
 
 export function CardClose({ action }: CardCloseProps) {
   return (
-    <span className="card-close" onClick={() => action()}>&times;</span>
+    <span className="card-close" onClick={() => action()}><i className="fa-solid fa-xmark"></i></span>
   )
 }

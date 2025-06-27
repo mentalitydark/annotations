@@ -12,7 +12,7 @@ export function Item({ item }: ItemProps) {
     <div className="item-container">
       <span className="item-description">{timerDiff} - {item.description}</span>
       <div className="item-actions">
-        <span className="item-action" onClick={() => removeItem()}>&times;</span>
+        <span className="item-action" onClick={() => removeItem()}><i className="fa-solid fa-trash"></i></span>
       </div>
     </div>
   )
