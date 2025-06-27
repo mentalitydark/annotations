@@ -20,7 +20,7 @@ export function ToastProvider({ children }: PropsWithChildren) {
     const id = setTimeout(() => {
       setShow(false)
       setTimeoutId(0)
-    }, 5000)
+    }, 2000)
 
     setTimeoutId(id)
   }
