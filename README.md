@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# Annotations
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para gerenciamento de cards e itens, desenvolvida com React, TypeScript e Vite.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Criação, remoção e listagem de cards
+- Adição e remoção de itens em cada card
+- Temporizador para marcação de tempo dos itens
+- Cópia rápida dos itens para a área de transferência
+- Notificações toast para feedback do usuário
 
-## Expanding the ESLint configuration
+## Tecnologias
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
 
-- Configure the top-level `parserOptions` property like this:
+## Como rodar
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. Instale as dependências:
+   ```sh
+   npm install
+   ```
+2. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm run dev
+   ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Acesse em [http://localhost:5173](http://localhost:5173).
+
+## Como build
+
+1. Instale as dependências:
+   ```sh
+   npm install
+   ```
+2. Inicie o processo de build:
+   ```sh
+   npm run build
+   ```
+
+Acesse a pasta `dist` que conterá o arquivo `index.html` e poderá ser utilizado de forma off-line.
